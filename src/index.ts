@@ -15,7 +15,7 @@ import AboutSection from "./components/AboutMeSection";
       case "js-close":
         App.innerHTML = HomeSection;
         break;
-      case "js-whoiam-link":
+      case "js-about-link":
         App.innerHTML = AboutSection;
         break;
       case "js-projects-link":

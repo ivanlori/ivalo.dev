@@ -1,10 +1,10 @@
+import closeBtn from "./Close";
+
 const githubProfileUrl = "https://github.com/ivanlori";
 
 const ProjectsSection: string = `
 <section class="projects fadeIn">
-  <div class="close-wrapper">
-    <i id="js-close">Close</i>
-  </div>
+  ${closeBtn}
   <div>
     <h1>My latest projects</h1>
     <p>All my projects are experiments hosted on Github.<br>

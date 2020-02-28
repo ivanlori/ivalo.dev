@@ -11,9 +11,15 @@ const HomeSection: string = `
       ${description}
     </p>
     <div class="home__links">
-      <a id="js-whoiam-link">Who I am</a>
-      <a id="js-projects-link">Check my latest projects out</a>
+      <a id="js-about-link">About me</a>
+      <a id="js-projects-link">My latest projects</a>
     </div>
+  </div>
+  <div class="social">
+    <ul>
+      <li><a target="_blank" rel="noopener" href="#">Github</a></li>
+      <li><a target="_blank" rel="noopener" href="#">Linkedin</a></li>
+    <ul>
   </div>
 </section>`;
 
