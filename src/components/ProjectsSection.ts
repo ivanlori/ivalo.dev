@@ -1,6 +1,5 @@
 import closeBtn from "./Close";
-
-const githubProfileUrl = "https://github.com/ivanlori";
+import { githubProfileUrl } from "./HomeSection";
 
 const ProjectsSection: string = `
 <section class="projects fadeIn">
@@ -19,8 +18,11 @@ const ProjectsSection: string = `
         <li>Vuex</li>
         <li>Bulma framework</li>
       </ul>
-      <a target="_blank" rel="noopener" href="${githubProfileUrl}/Vuemmerce">Source code</a> |
-      <a target="_blank" rel="noopener" href="https://vuemmerce-git-master.ivanlori.now.sh/">Demo</a>
+      <hr>
+      <div class="links">
+        <a target="_blank" rel="noopener" href="${githubProfileUrl}/Vuemmerce">Source code</a> <span class="dot"></span>
+        <a target="_blank" rel="noopener" href="https://vuemmerce-git-master.ivanlori.now.sh/">Demo</a>
+      </div>
     </div>
     <div>
       <h3>Estimate of costs</h3>
@@ -29,9 +31,10 @@ const ProjectsSection: string = `
         <li>Vanilla JS</li>
         <li>Grid CSS</li>
       </ul>
-      <div>
-      <a target="_blank" rel="noopener" href="${githubProfileUrl}/EstimateOnline">Source code</a> |
-      <a target="_blank" rel="noopener" href="https://ivanlori.github.io/EstimateOnline/">Demo</a>
+      <hr>
+      <div class="links">
+        <a target="_blank" rel="noopener" href="${githubProfileUrl}/EstimateOnline">Source code</a> <span class="dot"></span>
+        <a target="_blank" rel="noopener" href="https://ivanlori.github.io/EstimateOnline/">Demo</a>
       </div>
     </div>
   </div>

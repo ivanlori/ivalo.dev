@@ -1,3 +1,5 @@
+export const githubProfileUrl = "https://github.com/ivanlori";
+
 const description: string = `
 A passionate Frontend Developer who care about details.<br />
 I'm currently working in Milan.
@@ -10,15 +12,24 @@ const HomeSection: string = `
     <p>
       ${description}
     </p>
-    <div class="home__links">
-      <a id="js-about-link">About me</a>
+    <hr>
+    <div class="links">
+      <a id="js-about-link">About me</a> <span class="dot"></span>
       <a id="js-projects-link">My latest projects</a>
     </div>
   </div>
   <div class="social">
     <ul>
-      <li><a target="_blank" rel="noopener" href="#">Github</a></li>
-      <li><a target="_blank" rel="noopener" href="#">Linkedin</a></li>
+      <li>
+        <a target="_blank" rel="noopener" href="${githubProfileUrl}">
+          <span class="icon-github"></span>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivanlori/">
+          <span class="icon-linkedin"></span>
+        </a>
+      </li>
     <ul>
   </div>
 </section>`;
