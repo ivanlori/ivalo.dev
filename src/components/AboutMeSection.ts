@@ -1,4 +1,7 @@
-import closeBtn from "./Close";
+import closeBtn from "./CloseBtn";
+
+const urlCV: string =
+  "https://drive.google.com/file/d/1w8JMjAedc5EVaWx-IzmsOY0RzeM_RFNo/view?usp=sharing";
 
 const description: string = `
   I like making great products translating my ideas in real things.<br>
@@ -10,7 +13,7 @@ const description: string = `
 `;
 
 const AboutMeSection: string = `
-<section class="fadeIn">
+<section class="aboutme fadeIn">
   ${closeBtn}
   <div>
     <h2>About me...</h2>
@@ -18,8 +21,10 @@ const AboutMeSection: string = `
       ${description}
     </p>
     <hr>
-    <a href="mailto:ivan.lori@protonmail.com">Send me an e-mail</a> <span class="dot"></span>
-    <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1w8JMjAedc5EVaWx-IzmsOY0RzeM_RFNo/view?usp=sharing">Download my CV</a>
+    <div class="links">
+      <a href="mailto:ivan.lori@protonmail.com">Contact me</a> <span class="dot"></span>
+      <a target="_blank" rel="noopener" href="${urlCV}">View my CV</a>
+    </div>
   </div>
 </section>`;
 

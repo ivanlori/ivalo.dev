@@ -1,5 +1,9 @@
-import closeBtn from "./Close";
+import closeBtn from "./CloseBtn";
 import { githubProfileUrl } from "./HomeSection";
+
+const urlDemoEstimate: string = "https://ivanlori.github.io/EstimateOnline/";
+const urlDemoVuemmerce: string =
+  "https://vuemmerce-git-master.ivanlori.now.sh/";
 
 const ProjectsSection: string = `
 <section class="projects fadeIn">
@@ -21,7 +25,7 @@ const ProjectsSection: string = `
       <hr>
       <div class="links">
         <a target="_blank" rel="noopener" href="${githubProfileUrl}/Vuemmerce">Source code</a> <span class="dot"></span>
-        <a target="_blank" rel="noopener" href="https://vuemmerce-git-master.ivanlori.now.sh/">Demo</a>
+        <a target="_blank" rel="noopener" href="${urlDemoVuemmerce}">Demo</a>
       </div>
     </div>
     <div>
@@ -34,7 +38,7 @@ const ProjectsSection: string = `
       <hr>
       <div class="links">
         <a target="_blank" rel="noopener" href="${githubProfileUrl}/EstimateOnline">Source code</a> <span class="dot"></span>
-        <a target="_blank" rel="noopener" href="https://ivanlori.github.io/EstimateOnline/">Demo</a>
+        <a target="_blank" rel="noopener" href="${urlDemoEstimate}">Demo</a>
       </div>
     </div>
   </div>

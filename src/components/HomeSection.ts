@@ -1,4 +1,4 @@
-export const githubProfileUrl = "https://github.com/ivanlori";
+export const githubProfileUrl: string = "https://github.com/ivanlori";
 
 const description: string = `
 A passionate Frontend Developer who care about details.<br />
