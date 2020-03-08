@@ -3,7 +3,7 @@
   "version": "0.1",
   "description": "Ivan Lori's website",
   "main": "index.js",
-  "repository": "https://github.com/ivanlori/ivanlo.dev",
+  "repository": "https://github.com/ivanlori/ivalo.dev",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
   "license": "MIT",
   "private": false,
