@@ -1,9 +1,9 @@
 {
-  "name": "personal-website",
+  "name": "ivalo.dev",
   "version": "0.1",
   "description": "Ivan Lori's website",
   "main": "index.js",
-  "repository": "https://github.com/ivanlori/PersonalWebsite",
+  "repository": "https://github.com/ivanlori/ivanlo.dev",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
   "license": "MIT",
   "private": false,
