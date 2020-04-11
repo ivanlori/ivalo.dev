@@ -26,7 +26,7 @@ const HomeSection: string = `
         </a>
       </li>
       <li>
-        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivanlori/">
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivanlori">
           <span class="icon-linkedin"></span>
         </a>
       </li>

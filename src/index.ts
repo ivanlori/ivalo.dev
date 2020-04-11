@@ -1,12 +1,10 @@
-"use strict";
-
 import "./styles/main.scss";
 import HomeSection from "./components/HomeSection";
 import ProjectsSection from "./components/ProjectsSection";
 import AboutSection from "./components/AboutMeSection";
 
 (() => {
-  const App: HTMLElement = document.getElementById("app");
+  const App = document.getElementById("app");
 
   App.innerHTML = HomeSection;
 
