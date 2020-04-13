@@ -1,12 +1,18 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.ts",
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "docs"),
+  },
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   module: {
     rules: [
@@ -22,8 +28,13 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+              minimize: true,
+            },
+          },
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
@@ -47,5 +58,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./index.html",
     }),
+    new MiniCssExtractPlugin(),
   ],
 };
