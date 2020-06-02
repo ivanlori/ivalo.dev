@@ -1,8 +1,5 @@
 import closeBtn from "./CloseBtn";
 
-const urlCV: string =
-  "https://drive.google.com/file/d/1w8JMjAedc5EVaWx-IzmsOY0RzeM_RFNo/view?usp=sharing";
-
 const description: string = `
   I like making great products translating my ideas in real things.<br>
   In my free time I read books, trying constantly to improve myself
@@ -22,8 +19,7 @@ const AboutMeSection: string = `
     </p>
     <hr>
     <div class="links">
-      <a href="mailto:ivan.lori@protonmail.com">Contact me</a> <span class="dot"></span>
-      <a target="_blank" rel="noopener" href="${urlCV}">View my CV</a>
+      <a href="mailto:ivan.lori@protonmail.com">Contact me</a>
     </div>
   </div>
 </section>`;
