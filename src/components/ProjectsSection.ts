@@ -1,4 +1,3 @@
-import closeBtn from "./CloseBtn";
 import { githubProfileUrl } from "./HomeSection";
 
 const urlDemoEstimate: string = "https://ivanlori.github.io/EstimateOnline/";
@@ -6,15 +5,52 @@ const urlDemoVuemmerce: string =
   "https://vuemmerce-git-master.ivanlori.now.sh/";
 const urlCvBuilder: string = "https://github.com/ivanlori/CV-builder";
 
-const ProjectsSection: string = `
-<section class="projects fadeIn">
-  ${closeBtn}
-  <div>
+const handleTabVisibility = (id: string): void => {
+  document.querySelectorAll('.js-box').forEach(el => {
+    el.classList.add('d-none');
+  });
+  document.querySelector(id).classList.remove('d-none');
+}
+
+export const handleDOM = (): void => {
+  const jsItemClass = '.js-item';
+
+  document.addEventListener('click', (e: any) => {
+    if (!e.target.matches(jsItemClass)) return;
+    e.preventDefault();
+    const target = e.target;
+
+    document.querySelectorAll(jsItemClass).forEach(el => {
+      el.classList.remove('active');
+    });
+
+    if (document.querySelector('.active') === null) {
+      handleTabVisibility(target.hash);
+      target.classList.add('active');
+    }
+  }, false);
+}
+
+export const ProjectsSection: string = `
+<section class="fadeIn container">
+  <div class="columns">
+    <div class="column col-8 p-centered">
     <h1>My latest projects</h1>
     <p>All my projects are experiments hosted on Github.<br>
       I enjoy making new things and happy to see people who learn from them.
     </p>
-    <div class="box">
+    <ul class="tab tab-block">
+      <li class="tab-item">
+        <a class="js-item active" href="#builder">CV Builder</a>
+      </li>
+      <li class="tab-item">
+        <a class="js-item" href="#vuemmerce">Vuemmerce</a>
+      </li>
+      <li class="tab-item">
+        <a class="js-item" href="#estimate">Estimate of costs</a>
+      </li>
+    </ul>
+    <div id="builder" class="js-box box">
       <h3>CV-Builder</h3>
       <p>
       A resume builder with export in PDF format written with
@@ -36,7 +72,7 @@ const ProjectsSection: string = `
         <a target="_blank" rel="noopener" href="${urlCvBuilder}">Source code</a>
       </div>
     </div>
-    <div class="box">
+    <div id="vuemmerce" class="js-box box d-none">
       <h3>Vuemmerce | E-commerce template</h3>
       <p>Technologies used:</p>
       <ul>
@@ -51,7 +87,7 @@ const ProjectsSection: string = `
         <a target="_blank" rel="noopener" href="${urlDemoVuemmerce}">Demo</a>
       </div>
     </div>
-    <div class="box">
+    <div id="estimate" class="js-box box d-none">
       <h3>Estimate of costs</h3>
       <p>Technologies used:</p>
       <ul>
@@ -64,7 +100,6 @@ const ProjectsSection: string = `
         <a target="_blank" rel="noopener" href="${urlDemoEstimate}">Demo</a>
       </div>
     </div>
+    </div>
   </div>
 </section>`;
-
-export default ProjectsSection;

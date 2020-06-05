@@ -1,5 +1,3 @@
-import closeBtn from "./CloseBtn";
-
 const description: string = `
   I like making great products translating my ideas in real things.<br>
   In my free time I read books, trying constantly to improve myself
@@ -10,16 +8,17 @@ const description: string = `
 `;
 
 const AboutMeSection: string = `
-<section class="aboutme fadeIn">
-  ${closeBtn}
-  <div>
-    <h2>About me...</h2>
-    <p>
-      ${description}
-    </p>
-    <hr>
-    <div class="links">
-      <a href="mailto:ivan.lori@protonmail.com">Contact me</a>
+<section class="fadeIn container">
+  <div class="columns">
+    <div class="column col-8 p-centered">
+      <h1>About me...</h1>
+      <p>
+        ${description}
+      </p>
+      <hr>
+      <div class="links">
+        <a href="mailto:ivan.lori@protonmail.com">Contact me</a>
+      </div>
     </div>
   </div>
 </section>`;

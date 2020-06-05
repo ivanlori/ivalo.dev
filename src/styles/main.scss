@@ -1,58 +1,92 @@
-@import "vendor/normalize.scss";
+@import "node_modules/spectre.css/src/spectre";
 
-$backgroundColor: #1f1a1a;
-$textColor: #ffffff;
-$linkColor: #969696;
+$primary: #5cdb95;
+$secondary: #379683;
+$text: #ffffff;
+$link: #05386b;
 
 html,
 body {
   height: 100%;
-  font-size: 18px;
   font-family: "Lato";
+  font-weight: 500;
+}
+
+.tab-item {
+  color: $text !important;
+  outline: none !important;
+}
+
+.box {
+  margin-top: 30px;
 }
 
 a {
-  color: $linkColor;
-  font-size: 1.2rem;
+  color: $link;
   transition: ease-in 0.2s;
   text-decoration: none;
   cursor: pointer;
 
+  &.active {
+    color: $link !important;
+    border-bottom-color: $link !important;
+  }
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
   &:hover {
-    color: $textColor;
+    color: $link !important;
+    text-decoration: underline;
+
+    &.icon {
+      text-decoration: none;
+    }
   }
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+p,
+a,
+li {
+  font-size: 1.2rem;
+}
+
+header {
+  width: 100%;
+  height: 5rem;
+  padding: 20px;
+}
+
 body {
-  background-color: $backgroundColor;
-  color: $textColor;
+  background-color: $primary;
+  color: $text;
 }
 
 ::selection {
   background-color: #c7a5a5;
 }
 
-main {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 10%;
+.home {
+  .close-wrapper {
+    display: none;
+  }
 
-  .home {
-    .social {
-      margin-top: 30%;
-    }
+  .social {
+    margin-top: 30%;
+  }
 
-    ul {
-      display: flex;
-      justify-content: center;
-      list-style-type: none;
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
 
-      li {
-        margin: 15px;
-      }
+    li {
+      margin: 15px;
     }
   }
 }
@@ -61,7 +95,7 @@ main {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: $linkColor;
+  background-color: $secondary;
   display: inline-block;
   margin: 4px;
 }
@@ -72,34 +106,12 @@ hr {
 }
 
 section {
-  max-width: 60%;
-
-  &.projects {
-    margin-bottom: 10%;
-
-    .box {
-      background-color: #272727;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 20px 0;
-    }
-
-    ul {
-      line-height: 2em;
-    }
-
-    h3 {
-      margin-top: 5px;
-    }
-  }
+  margin-bottom: 5rem;
 }
 
 .close-wrapper {
-  position: fixed;
-  top: 35px;
-  right: 35px;
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 @font-face {
@@ -133,32 +145,19 @@ section {
 .icon-github:before {
   content: "\eab0";
 }
+
 .icon-linkedin:before {
   content: "\eac9";
 }
 
 footer {
-  background-color: #292323;
-  color: $textColor;
-  position: fixed;
+  background-color: $secondary;
   bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
 
-  p,
+  span,
   a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
-
-  a {
-    color: $textColor;
-    text-decoration: underline;
-  }
-}
-
-footer > div {
-  text-align: center;
 }
 
 @-webkit-keyframes fadeIn {
@@ -189,18 +188,6 @@ footer > div {
 }
 
 @media only screen and (max-width: 640px) {
-  h1 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-  }
-
   .links {
     display: flex;
     flex-direction: column;
@@ -212,23 +199,5 @@ footer > div {
 
   footer {
     flex-direction: column;
-
-    p {
-      margin: 5px;
-    }
-  }
-
-  section.projects,
-  section.aboutme {
-    margin-bottom: 25%;
-  }
-
-  .close-wrapper {
-    top: 20px;
-    right: 15px;
-  }
-
-  main {
-    margin-bottom: 50px;
   }
 }

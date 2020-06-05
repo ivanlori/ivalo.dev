@@ -1,23 +1,28 @@
 import "./styles/main.scss";
 import HomeSection from "./components/HomeSection";
-import ProjectsSection from "./components/ProjectsSection";
+import { ProjectsSection, handleDOM } from "./components/ProjectsSection";
 import AboutSection from "./components/AboutMeSection";
 
 (() => {
-  const App = document.getElementById("app");
+  const $app = document.getElementById('app') as HTMLElement;
+  const $body = document.querySelector('body') as HTMLElement;
 
-  App.innerHTML = HomeSection;
+  $app.innerHTML = HomeSection;
 
-  document.body.addEventListener("click", (e: any) => {
+  $body.addEventListener("click", (e: any) => {
     switch (e.target.id) {
       case "js-close":
-        App.innerHTML = HomeSection;
+        $body.className = 'home';
+        $app.innerHTML = HomeSection;
         break;
       case "js-about-link":
-        App.innerHTML = AboutSection;
+        $body.className = 'aboutme';
+        $app.innerHTML = AboutSection;
         break;
       case "js-projects-link":
-        App.innerHTML = ProjectsSection;
+        $body.className = 'projects';
+        $app.innerHTML = ProjectsSection;
+        handleDOM();
         break;
       default:
         break;
