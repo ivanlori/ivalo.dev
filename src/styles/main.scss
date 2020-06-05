@@ -15,6 +15,14 @@ body {
 .tab-item {
   color: $text !important;
   outline: none !important;
+
+  a {
+    font-size: 1rem;
+  }
+
+  a:hover {
+    border-bottom-color: $link;
+  }
 }
 
 .box {

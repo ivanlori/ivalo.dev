@@ -2,7 +2,7 @@ export const githubProfileUrl: string = "https://github.com/ivanlori";
 
 const description: string = `
 A passionate Frontend Developer who care about details.<br />
-I'm currently working in Milan.
+I am currently working in Milan.
 `;
 
 const HomeSection: string = `
