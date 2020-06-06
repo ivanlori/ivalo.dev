@@ -40,6 +40,12 @@ a {
     border-bottom-color: $link !important;
   }
 
+  &:visited,
+  &:focus {
+    color: $link;
+    text-decoration: none;
+  }
+
   &:focus {
     box-shadow: none !important;
   }
@@ -165,6 +171,11 @@ footer {
   span,
   a {
     font-size: 0.7rem;
+  }
+
+  a {
+    color: $text;
+    text-decoration: underline;
   }
 }
 
