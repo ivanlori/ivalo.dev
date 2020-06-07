@@ -1,7 +1,7 @@
 import "./styles/main.scss";
-import HomeSection from "./components/HomeSection";
-import { ProjectsSection, handleDOM } from "./components/ProjectsSection";
-import AboutSection from "./components/AboutMeSection";
+import HomeSection from "./pages/Home";
+import { ProjectsSection, handleDOM } from "./pages/Projects";
+import AboutSection from "./pages/AboutMe";
 
 (() => {
   const $app = document.getElementById('app') as HTMLElement;

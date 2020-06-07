@@ -15,7 +15,6 @@ const AboutMeSection: string = `
       <p>
         ${description}
       </p>
-      <hr>
       <div class="links">
         <a href="mailto:ivan.lori@protonmail.com">Contact me</a>
       </div>

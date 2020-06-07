@@ -13,7 +13,6 @@ const HomeSection: string = `
       <p>
         ${description}
       </p>
-      <hr>
       <div class="links">
         <a id="js-about-link">About me</a> <span class="dot"></span>
         <a id="js-projects-link">My side projects</a>
