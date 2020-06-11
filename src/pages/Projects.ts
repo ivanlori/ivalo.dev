@@ -8,121 +8,162 @@ const stackLi: string = 'js-stack-li';
 const jsTabLink: string = 'js-tab-link';
 const tabBody: string = 'js-box';
 const links: string = 'js-links';
-const typeOfAnimation: string = 'fadeInRight';
-const hideClass: string = 'd-hide';
+const fadeInRightAnimation: string = 'fadeInRight';
+const fadeInAnimation: string = 'fadeIn';
+const hide: string = 'd-hide';
+const invisible: string = 'd-invisible';
 
-const dataCvBuilder = {
-  id: 'builder',
-  name: 'CV-Builder',
-  description: 'A resume builder with export in PDF format written with the following technologies:',
-  sourceCodeUrl: urlCvBuilder,
-  demoUrl: '',
-  technologies: [
-    'React.js',
-    'Redux.js',
-    'Redux Saga',
-    'Typescript',
-    'Styled components',
-    'Puppeteer',
-    'Node.js/Express.js',
-    'Webpack.js',
-    'Jest',
-    'ES6',
-  ],
-}
+class Projects {
 
-const dataVuemmerce = {
-  id: 'vuemmerce',
-  name: 'Vuemmerce | E-commerce template',
-  description: 'Technologies used:',
-  sourceCodeUrl: `${githubProfileUrl}/Vuemmerce`,
-  demoUrl: urlDemoVuemmerce,
-  technologies: [
-    'Vue.js',
-    'ES6',
-    'Nuxt.js',
-    'Vuex',
-    'Bulma framework',
-  ]
-}
+  body: HTMLElement;
+  app: HTMLElement;
 
-const dataEstimateOnline = {
-  id: 'estimate',
-  name: 'Estimate of costs',
-  description: 'Technologies used:',
-  sourceCodeUrl: `${githubProfileUrl}/EstimateOnline`,
-  demoUrl: urlDemoEstimate,
-  technologies: [
-    'Vanilla JS',
-    'ES6',
-  ]
-}
+  constructor(body: HTMLElement, app: HTMLElement) {
+    this.body = body;
+    this.app = app;
+  }
 
-export const ProjectsSection: string = `
-<section class="fadeIn container">
-  <div class="columns">
-    <div class="column col-8 p-centered">
-      <h1>My latest projects</h1>
-      <p>All my projects are experiments hosted on Github.<br>
-        I enjoy making new things and happy to see people who learn from them.
-      </p>
-      <ul class="tab tab-block">
-        <li class="tab-item">
-          <a class="${jsTabLink} active" href="#builder">CV Builder</a>
-        </li>
-        <li class="tab-item">
-          <a class="${jsTabLink}" href="#vuemmerce">Vuemmerce</a>
-        </li>
-        <li class="tab-item">
-          <a class="${jsTabLink}" href="#estimate">Estimate of costs</a>
-        </li>
-      </ul>
-      ${SingleProjectLayout(dataCvBuilder)}
-      ${SingleProjectLayout(dataVuemmerce)}
-      ${SingleProjectLayout(dataEstimateOnline)}
-    </div>
-  </div>
-</section>`;
+  private dataCvBuilder = {
+    id: 'builder',
+    name: 'CV-Builder',
+    description: 'A resume builder with export in PDF format written with the following technologies:',
+    sourceCodeUrl: urlCvBuilder,
+    demoUrl: '',
+    technologies: [
+      'React.js',
+      'Redux.js',
+      'Redux Saga',
+      'Typescript',
+      'Styled components',
+      'Puppeteer',
+      'Node.js/Express.js',
+      'Webpack.js',
+      'Jest',
+      'ES6',
+    ],
+  }
 
-function tabsClickHandler() {
-  document.addEventListener('click', (e: any) => {
-    if (!e.target.matches(`.${jsTabLink}`)) return;
-    e.preventDefault();
-    const target = e.target;
+  private dataVuemmerce = {
+    id: 'vuemmerce',
+    name: 'Vuemmerce | E-commerce template',
+    description: 'Technologies used:',
+    sourceCodeUrl: `${githubProfileUrl}/Vuemmerce`,
+    demoUrl: urlDemoVuemmerce,
+    technologies: [
+      'Vue.js',
+      'ES6',
+      'Nuxt.js',
+      'Vuex',
+      'Bulma framework',
+    ]
+  }
 
-    document.querySelectorAll(`.${jsTabLink}`).forEach(el => {
-      el.classList.remove('active');
-    });
+  private dataEstimateOnline = {
+    id: 'estimate',
+    name: 'Estimate of costs',
+    description: 'Technologies used:',
+    sourceCodeUrl: `${githubProfileUrl}/EstimateOnline`,
+    demoUrl: urlDemoEstimate,
+    technologies: [
+      'Vanilla JS',
+      'ES6',
+    ]
+  }
 
-    // if tab is hidden
-    if (document.querySelector('.active') === null) {
-      document.querySelectorAll(`.${tabBody}`).forEach(el => {
-        el.classList.add(`${hideClass}`);
+  private tabsClickHandler = (): void => {
+    document.addEventListener('click', (e: any) => {
+      if (!e.target.matches(`.${jsTabLink}`)) return;
+      e.preventDefault();
+      const target = e.target;
+
+      document.querySelectorAll(`.${jsTabLink}`).forEach(el => {
+        el.classList.remove('active');
       });
-      stackListAnimationHandler(target.hash);
-      document.querySelector(target.hash).classList.remove(`${hideClass}`);
-      target.classList.add('active');
+
+      // if tab is hidden
+      if (document.querySelector('.active') === null) {
+
+        // hides all tabs
+        document.querySelectorAll(`.${tabBody}`).forEach(el => {
+          el.classList.add(`${hide}`);
+        });
+
+        // shows only the target tab
+        document.querySelector(target.hash).classList.remove(`${hide}`);
+        target.classList.add('active');
+
+        // store value in storage to have animation once per tab
+        if (!sessionStorage.getItem(target.hash)) {
+          sessionStorage.setItem(target.hash, 'true');
+          this.animationHandler(target.hash);
+        }
+      }
+    });
+  }
+
+  private animationHandler = (container: string): void => {
+    const projectStack = document.querySelectorAll(`${container} .${stackLi}`);
+    const projectLinks = document.querySelector(`${container} #${links}`);
+    const lastItem = projectStack[projectStack.length - 1];
+
+    projectStack.forEach((item, index) => {
+      item.classList.remove(fadeInRightAnimation);
+      item.classList.add(invisible);
+
+      setTimeout(() => {
+        item.classList.remove(invisible);
+        item.classList.add(fadeInRightAnimation);
+
+        // show links demo || source code when all items are displayed
+        if (lastItem.classList.contains(fadeInRightAnimation)) {
+          projectLinks.classList.remove(invisible);
+          projectLinks.classList.add(fadeInAnimation);
+        }
+      }, 300 * index);
+    });
+  }
+
+  private DOMhandler = (): void => {
+    if (!sessionStorage.getItem('#builder')) {
+      sessionStorage.setItem('#builder', 'true');
+      this.animationHandler('#builder');
     }
-  });
+    this.tabsClickHandler();
+  }
+
+  private render = (): string => {
+    return (`
+      <section class="fadeIn container">
+        <div class="columns">
+          <div class="column col-8 p-centered">
+            <h1>My latest projects</h1>
+            <p>All my projects are experiments hosted on Github.<br>
+              I enjoy making new things and happy to see people who learn from them.</p>
+            <ul class="tab tab-block">
+              <li class="tab-item">
+                <a class="${jsTabLink} active" href="#builder">CV Builder</a>
+              </li>
+              <li class="tab-item">
+                <a class="${jsTabLink}" href="#vuemmerce">Vuemmerce</a>
+              </li>
+              <li class="tab-item">
+                <a class="${jsTabLink}" href="#estimate">Estimate of costs</a>
+              </li>
+            </ul>
+            ${SingleProjectLayout(this.dataCvBuilder)}
+            ${SingleProjectLayout(this.dataVuemmerce)}
+            ${SingleProjectLayout(this.dataEstimateOnline)}
+          </div>
+        </div>
+      </section>`
+    );
+  }
+
+  showPage = () => {
+    this.body.className = 'projects';
+    this.app.innerHTML = this.render();
+    this.DOMhandler();
+  }
 }
 
-function stackListAnimationHandler(container: string) {
-  const projectStack = document.querySelectorAll(`${container} .${stackLi}`);
-
-  projectStack.forEach((item, index) => {
-    item.classList.remove(typeOfAnimation);
-    item.classList.add(`${hideClass}`);
-
-    setTimeout(() => {
-      item.classList.remove(`${hideClass}`);
-      item.classList.add(typeOfAnimation);
-
-      document.querySelector(`.${links}`).classList.remove(hideClass);
-    }, 300 * index);
-  });
-}
-
-export const handleDOM = (): void => {
-  stackListAnimationHandler('#builder');
-  tabsClickHandler();
-}
+export default Projects;

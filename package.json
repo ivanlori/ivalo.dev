@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --open",
-    "build": "webpack --config webpack.config.js"
+    "dev": "webpack-dev-server --config webpack.development.js --open",
+    "build": "webpack --config webpack.production.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
