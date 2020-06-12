@@ -92,11 +92,7 @@ class Projects {
         document.querySelector(target.hash).classList.remove(`${hide}`);
         target.classList.add('active');
 
-        // store value in storage to have animation once per tab
-        if (!sessionStorage.getItem(target.hash)) {
-          sessionStorage.setItem(target.hash, 'true');
-          this.animationHandler(target.hash);
-        }
+        this.animationHandler(target.hash);
       }
     });
   }
@@ -107,28 +103,33 @@ class Projects {
     const lastItem = projectStack[projectStack.length - 1];
 
     projectStack.forEach((item, index) => {
-      item.classList.remove(fadeInRightAnimation);
-      item.classList.add(invisible);
 
-      setTimeout(() => {
+      // store value in storage to have animation once per tab
+      if (sessionStorage.getItem(container)) {
         item.classList.remove(invisible);
-        item.classList.add(fadeInRightAnimation);
+        projectLinks.classList.remove(invisible);
+      } else {
+        item.classList.remove(fadeInRightAnimation);
+        item.classList.add(invisible);
 
-        // show links demo || source code when all items are displayed
-        if (lastItem.classList.contains(fadeInRightAnimation)) {
-          projectLinks.classList.remove(invisible);
-          projectLinks.classList.add(fadeInAnimation);
-        }
-      }, 300 * index);
+        setTimeout(() => {
+          item.classList.remove(invisible);
+          item.classList.add(fadeInRightAnimation);
+
+          // show links demo || source code when all items are displayed
+          if (lastItem.classList.contains(fadeInRightAnimation)) {
+            projectLinks.classList.remove(invisible);
+            projectLinks.classList.add(fadeInAnimation);
+            sessionStorage.setItem(container, 'true');
+          }
+        }, 300 * index);
+      }
     });
   }
 
   private DOMhandler = (): void => {
-    if (!sessionStorage.getItem('#builder')) {
-      sessionStorage.setItem('#builder', 'true');
-      this.animationHandler('#builder');
-    }
     this.tabsClickHandler();
+    this.animationHandler('#builder');
   }
 
   private render = (): string => {
