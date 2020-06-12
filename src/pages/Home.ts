@@ -27,7 +27,7 @@ class Home {
               ${this.description()}
             </p>
             <div class="links">
-              <a id="js-about-link">About me</a> <span class="dot"></span>
+              <a id="js-about-link">About me</a> <span class="dot hide-xs hide-sm"></span>
               <a id="js-projects-link">My side projects</a>
             </div>
             <div class="social">

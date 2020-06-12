@@ -27,7 +27,7 @@ export const SingleProjectLayout = (props: Props): string => {
       <ul>${showTechnologies(technologies)}</ul>
       <div id="${links}" class="${invisible}">
         <a target="_blank" rel="noopener" href="${sourceCodeUrl}">Source code</a>
-        ${demoUrl && `<div class="dot"></div> <a target="_blank" rel="noopener" href="${demoUrl}">Demo</a>`}
+        ${demoUrl && `<div class="dot hide-xs hide-sm"></div> <a target="_blank" rel="noopener" href="${demoUrl}">Demo</a>`}
       </div>
     </div>`
   );
