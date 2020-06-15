@@ -12,7 +12,7 @@ class Home {
 
   private description = (): string => {
     return (`
-      A passionate Frontend Developer who care about details.<br />
+      Frontend Developer who care about details.<br />
       I am currently working in Milan.`
     );
   }
