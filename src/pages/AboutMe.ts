@@ -10,9 +10,8 @@ class AboutMe {
 
   private description = (): string => {
     return (`
-      I like making great products translating my ideas in real things.<br>
-      In my free time I read books, trying constantly to improve myself
-      both human and professional way.<br>
+      My interests are minimalism, self growth, finance, astronomy and technology.<br>
+      Always searching for a book that could improve my vision drastically.<br>
       I love hearing about different points of views and experiences on topics and...<br>
       of course videogames!<br><br>
       Do you want to hear more? Let's get in touch!

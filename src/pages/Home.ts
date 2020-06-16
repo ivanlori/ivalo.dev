@@ -12,8 +12,8 @@ class Home {
 
   private description = (): string => {
     return (`
-      Frontend Developer who care about details.<br />
-      I am currently working in Milan.`
+      I write <strong>HTML</strong>, <strong>CSS</strong> and <strong>Javascript</strong> to translate ideas in code.<br>
+      Someone says I'm a <strong>Frontend Developer</strong>.`
     );
   }
 
@@ -22,7 +22,7 @@ class Home {
       <section class="fadeIn container grid-lg">
         <div class="columns">
           <div class="column col-8 p-centered">
-            <h1>Hi, I am Ivan</h1>
+            <h1>Hi, I'm Ivan</h1>
             <p>
               ${this.description()}
             </p>
