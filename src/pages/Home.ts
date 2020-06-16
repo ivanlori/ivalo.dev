@@ -12,7 +12,7 @@ class Home {
 
   private description = (): string => {
     return (`
-      I write <strong>HTML</strong>, <strong>CSS</strong> and <strong>Javascript</strong> to translate ideas in code.<br>
+      I write <strong>HTML</strong>, <strong>CSS</strong> and <strong>Javascript</strong> to translate ideas in reality.<br>
       Someone says I'm a <strong>Frontend Developer</strong>.`
     );
   }
