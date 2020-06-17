@@ -2,9 +2,7 @@ class CookieBanner {
   private $cookieBanner = document.querySelector('.js-cookie-banner') as HTMLElement;
   private cookieName = 'cookieBanner';
 
-  setCookie() {
-    sessionStorage.setItem(this.cookieName, 'true');
-  }
+  setCookie = () => sessionStorage.setItem(this.cookieName, 'true');
 
   hide = () => this.$cookieBanner.classList.add('d-hide');
 
