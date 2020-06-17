@@ -2,15 +2,19 @@ import "./styles/main.scss";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import AboutMe from "./pages/AboutMe";
+import CookieBanner from './components/CookieBanner';
 
 (() => {
   const $app = document.getElementById('app') as HTMLElement;
   const $body = document.querySelector('body') as HTMLElement;
+
   const aboutMePage = new AboutMe($body, $app);
   const projectsPage = new Projects($body, $app);
   const homePage = new Home($body, $app);
+  const cookieBanner = new CookieBanner();
 
   homePage.showPage();
+  cookieBanner.init();
 
   $body.addEventListener("click", (e: any) => {
     const id = e.target.id;

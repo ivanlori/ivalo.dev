@@ -1,5 +1,6 @@
 import { githubProfileUrl } from "./Home";
 import { SingleProjectLayout } from '../components/SingleProjectLayout';
+import CookieBanner from "../components/CookieBanner";
 
 const urlDemoEstimate: string = "https://ivanlori.github.io/EstimateOnline/";
 const urlDemoVuemmerce: string = "https://vuemmerce-git-master.ivanlori.now.sh/";
@@ -12,6 +13,7 @@ const fadeInRightAnimation: string = 'fadeInRight';
 const fadeInAnimation: string = 'fadeIn';
 const hide: string = 'd-hide';
 const invisible: string = 'd-invisible';
+const cookieBanner = new CookieBanner();
 
 class Projects {
 
@@ -164,6 +166,8 @@ class Projects {
     this.body.className = 'projects';
     this.app.innerHTML = this.render();
     this.DOMhandler();
+    cookieBanner.setCookie();
+    cookieBanner.hide();
   }
 }
 

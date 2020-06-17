@@ -1,3 +1,7 @@
+import CookieBanner from '../components/CookieBanner';
+
+const cookieBanner = new CookieBanner();
+
 class AboutMe {
 
   body: HTMLElement;
@@ -39,6 +43,8 @@ class AboutMe {
   showPage = () => {
     this.body.className = 'aboutme';
     this.app.innerHTML = this.render();
+    cookieBanner.setCookie();
+    cookieBanner.hide();
   }
 }
 
