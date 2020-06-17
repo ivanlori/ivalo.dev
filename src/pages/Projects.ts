@@ -48,7 +48,7 @@ class Projects {
   private dataVuemmerce = {
     id: 'vuemmerce',
     name: 'Vuemmerce | E-commerce template',
-    description: 'Technologies used:',
+    description: 'A pure frontend starter ecommerce template made with:',
     sourceCodeUrl: `${githubProfileUrl}/Vuemmerce`,
     demoUrl: urlDemoVuemmerce,
     technologies: [
@@ -63,7 +63,7 @@ class Projects {
   private dataEstimateOnline = {
     id: 'estimate',
     name: 'Estimate of costs',
-    description: 'Technologies used:',
+    description: 'A simply interactive estimate of costs with preview and print options made with:',
     sourceCodeUrl: `${githubProfileUrl}/EstimateOnline`,
     demoUrl: urlDemoEstimate,
     technologies: [
@@ -82,7 +82,7 @@ class Projects {
         el.classList.remove('active');
       });
 
-      // if tab is hidden
+      // if tab is not active
       if (document.querySelector('.active') === null) {
 
         // hides all tabs
@@ -104,6 +104,7 @@ class Projects {
     const projectLinks = document.querySelector(`${container} #${links}`);
     const lastItem = projectStack[projectStack.length - 1];
 
+    // works on items li
     projectStack.forEach((item, index) => {
 
       // store value in storage to have animation once per tab

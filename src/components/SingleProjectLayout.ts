@@ -21,7 +21,7 @@ const showTechnologies = (items: string[]): string => {
 export const SingleProjectLayout = (props: Props): string => {
   const { id, name, description, technologies, sourceCodeUrl, demoUrl } = props;
   return (
-    `<div id="${id}" class="${tabBody} box ${id === 'builder' ? '' : 'd-hide'}">
+    `<div id="${id}" class="${tabBody} box ${id === 'builder' ? '' : 'd-hide'} fadeIn">
       <h3>${name}</h3>
       <p>${description}</p>
       <ul>${showTechnologies(technologies)}</ul>

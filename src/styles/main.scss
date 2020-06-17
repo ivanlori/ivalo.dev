@@ -12,9 +12,14 @@ body {
   font-weight: 500;
 }
 
+.tab {
+  border-bottom: 0;
+}
+
 .tab-item {
   color: $text !important;
   outline: none !important;
+  border-bottom: 1px solid;
 
   a {
     font-size: 1rem;
