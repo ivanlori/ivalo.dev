@@ -5,8 +5,9 @@ import AboutMe from "./pages/AboutMe";
 import CookieBanner from './components/CookieBanner';
 
 (() => {
-  const $app = document.getElementById('app') as HTMLElement;
-  const $body = document.querySelector('body') as HTMLElement;
+  const doc = document;
+  const $app = doc.getElementById('app') as HTMLElement;
+  const $body = doc.querySelector('body') as HTMLElement;
 
   const aboutMePage = new AboutMe($body, $app);
   const projectsPage = new Projects($body, $app);

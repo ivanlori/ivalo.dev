@@ -13,6 +13,7 @@ const fadeInRightAnimation: string = 'fadeInRight';
 const fadeInAnimation: string = 'fadeIn';
 const hide: string = 'd-hide';
 const invisible: string = 'd-invisible';
+const doc = document;
 const cookieBanner = new CookieBanner();
 
 class Projects {
@@ -73,25 +74,25 @@ class Projects {
   }
 
   private tabsClickHandler = (): void => {
-    document.addEventListener('click', (e: any) => {
+    doc.addEventListener('click', (e: any) => {
       if (!e.target.matches(`.${jsTabLink}`)) return;
       e.preventDefault();
       const target = e.target;
 
-      document.querySelectorAll(`.${jsTabLink}`).forEach(el => {
+      doc.querySelectorAll(`.${jsTabLink}`).forEach(el => {
         el.classList.remove('active');
       });
 
       // if tab is not active
-      if (document.querySelector('.active') === null) {
+      if (doc.querySelector('.active') === null) {
 
         // hides all tabs
-        document.querySelectorAll(`.${tabBody}`).forEach(el => {
+        doc.querySelectorAll(`.${tabBody}`).forEach(el => {
           el.classList.add(`${hide}`);
         });
 
         // shows only the target tab
-        document.querySelector(target.hash).classList.remove(`${hide}`);
+        doc.querySelector(target.hash).classList.remove(`${hide}`);
         target.classList.add('active');
 
         this.animationHandler(target.hash);
@@ -100,8 +101,8 @@ class Projects {
   }
 
   private animationHandler = (container: string): void => {
-    const projectStack = document.querySelectorAll(`${container} .${stackLi}`);
-    const projectLinks = document.querySelector(`${container} #${links}`);
+    const projectStack = doc.querySelectorAll(`${container} .${stackLi}`);
+    const projectLinks = doc.querySelector(`${container} #${links}`);
     const lastItem = projectStack[projectStack.length - 1];
 
     // works on items li
