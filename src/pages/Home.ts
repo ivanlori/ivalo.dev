@@ -19,7 +19,7 @@ class Home {
 
   private render = () => {
     return (`
-      <section class="fadeIn container grid-lg">
+      <section class="fadeIn container">
         <div class="columns">
           <div class="column col-8 p-centered">
             <h1>Hi, I'm Ivan</h1>
