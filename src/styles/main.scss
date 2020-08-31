@@ -98,7 +98,7 @@ body {
   }
 
   .social {
-    margin-top: 30%;
+    margin-top: 15%;
   }
 
   ul {
@@ -241,5 +241,11 @@ footer {
   .links {
     display: flex;
     flex-direction: column;
+  }
+  section {
+    margin-bottom: 10rem;
+  }
+  .tab-item {
+    flex: auto!important;
   }
 }
