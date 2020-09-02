@@ -12,6 +12,8 @@ body {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
 }
 
 .tab {
@@ -177,8 +179,8 @@ section {
 
 footer {
   background-color: $secondary;
-  bottom: 0;
   color: $text;
+  margin-top: auto;
 
   span,
   a {
