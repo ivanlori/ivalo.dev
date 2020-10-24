@@ -5,9 +5,9 @@
 ## Directories
 log/
 node_modules/
-dist
 .cache
 
 ## Files
 result.xml
 npm-debug.log
+yarn-error.log

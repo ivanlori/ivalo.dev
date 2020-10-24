@@ -1,6 +1,6 @@
 {
   "name": "ivalo.dev",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Ivan Lori's website",
   "main": "index.js",
   "repository": "https://github.com/ivanlori/ivalo.dev",
@@ -9,32 +9,20 @@
   "private": true,
   "scripts": {
     "dev": "parcel -p 8080 watch index.html",
-    "build": "parcel build index.html"
+    "build": "rm -rf docs && parcel build index.html -d docs"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^3.5.2",
-    "file-loader": "^6.0.0",
-    "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.2.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-svelte": "^4.0.6",
-    "sass-loader": "^8.0.2",
+    "sass": "^1.27.0",
     "svelte": "^3.29.0",
-    "terser-webpack-plugin": "^2.3.5",
-    "ts-loader": "^6.2.2",
-    "typescript": "^3.7.5",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "typescript": "^4.0.3"
   },
   "dependencies": {
+    "@tsconfig/svelte": "^1.0.10",
     "components": "^0.1.0",
-    "spectre.css": "^0.5.8"
+    "spectre.css": "^0.5.8",
+    "svelte-check": "^1.1.1",
+    "svelte-preprocess": "^4.5.2"
   }
 }

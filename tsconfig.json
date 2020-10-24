@@ -1,29 +1,11 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "es6"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": false,
-    "jsx": "react",
-    "sourceMap": true,
-    "isolatedModules": true,
-    "downlevelIteration": false,
-    "strictNullChecks": false,
-    "rootDir": "./",
-    "outDir": "dist/",
-    "baseUrl": "src/",
-    "watch": true,
-    "types": ["node"],
-    "pretty": true
-  },
-  "esclude": ["node_modules"]
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules/*",
+    "__sapper__/*",
+    "public/*",
+    "dist/*",
+    ".cache/*"
+  ]
 }
