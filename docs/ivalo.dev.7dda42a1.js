@@ -22,4 +22,4 @@ var t=arguments[3];function e(){}Object.defineProperty(exports,"__esModule",{val
 },{"svelte/internal":"xeIE","./pages/Home.svelte":"wIA9","./pages/Projects.svelte":"HhE2","./pages/AboutMe.svelte":"cI03","./components/CookieBanner.svelte":"xSDA","./store":"z7jk","./styles/main.scss":"ryFC"}],"QCba":[function(require,module,exports) {
 "use strict";var e=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});var t=e(require("./src/App.svelte")),r=new t.default({target:document.body});exports.default=r;
 },{"./src/App.svelte":"U0xS"}]},{},["QCba"], null)
-//# sourceMappingURL=/ivalo.dev.d7231a79.js.map
+//# sourceMappingURL=ivalo.dev.7dda42a1.js.map
