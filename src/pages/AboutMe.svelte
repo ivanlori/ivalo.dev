@@ -1,16 +1,11 @@
-<script>
-  const title = "About me...";
-  const description = `My interests are minimalism, self growth, finance, astronomy and technology.<br>
-      Always searching for a book that could improve my vision drastically.<br>
-      I love hearing about different points of views and experiences on topics and...<br>
-      of course videogames!<br><br>
+<script lang="ts">
+  const title: string = "About me...";
+  const description: string = `My interests are minimalism, self growth, finance, astronomy and technology.<br />
+      Always searching for a book that could improve my vision drastically.<br />
+      I love hearing about different points of views and experiences on topics and...<br />
+      of course videogames!<br /><br />
       Do you want to hear more? Let's get in touch!
 `;
-
-  /* showPage = () => {
-    cookieBanner.setCookie();
-    cookieBanner.hide();
-  } */
 </script>
 
 <section class="fadeIn container">

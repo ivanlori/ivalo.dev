@@ -94,20 +94,14 @@ body {
   background-color: #c7a5a5;
 }
 
-.home {
-  .close-wrapper {
-    display: none;
-  }
-
-  .social {
-    margin-top: 15%;
-  }
+.social {
+  margin-top: 15%;
 
   ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
-
+  
     li {
       margin: 15px;
     }

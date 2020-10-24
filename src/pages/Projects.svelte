@@ -1,95 +1,41 @@
-<script>
-  import { githubProfileUrl } from "./Home";
-  import { SingleProjectLayout } from "../components/SingleProjectLayout.svelte";
+<script lang="ts">
+  import SingleProjectLayout from "../components/SingleProjectLayout.svelte";
 
-  const dataEstimateOnline = {
-    id: "estimate",
+  type ProjectModel = {
+    name: string;
+    description: string;
+    sourceCodeUrl: string;
+    demoUrl: string;
+    technologies: string[];
+  };
+
+  const profileUrl: string = "https://github.com/ivanlori";
+  let showBuilder: boolean = true;
+  let showEstimate: boolean = false;
+  let showVuemmerce: boolean = false;
+
+  const dataEstimateOnline: ProjectModel = {
     name: "Estimate of costs",
     description:
       "A simply interactive estimate of costs with preview and print options made with:",
-    sourceCodeUrl: `${githubProfileUrl}/EstimateOnline`,
+    sourceCodeUrl: `${profileUrl}/EstimateOnline`,
     demoUrl: "https://ivanlori.github.io/EstimateOnline/",
     technologies: ["Vanilla JS", "ES6"],
   };
-  /* 
-  private animationHandler = (container: string): void => {
-    const projectStack = doc.querySelectorAll(`${container} .${stackLi}`);
-    const projectLinks = doc.querySelector(`${container} #${links}`);
-    const lastItem = projectStack[projectStack.length - 1];
 
-    // works on items li
-    projectStack.forEach((item, index) => {
-
-      // store value in storage to have animation once per tab
-      if (sessionStorage.getItem(container)) {
-        item.classList.remove(invisible);
-        projectLinks.classList.remove(invisible);
-      } else {
-        item.classList.remove(fadeInRightAnimation);
-        item.classList.add(invisible);
-
-        setTimeout(() => {
-          item.classList.remove(invisible);
-          item.classList.add(fadeInRightAnimation);
-
-          // show links demo || source code when all items are displayed
-          if (lastItem.classList.contains(fadeInRightAnimation)) {
-            projectLinks.classList.remove(invisible);
-            projectLinks.classList.add(fadeInAnimation);
-            sessionStorage.setItem(container, 'true');
-          }
-        }, 300 * index);
-      }
-    });
-  }
-
-  private DOMhandler = (): void => {
-    this.tabsClickHandler();
-    this.animationHandler('#builder');
-  }
-} */
-
-  /* tabsClickHandler = (): void => {
-    doc.addEventListener('click', (e: any) => {
-      if (!e.target.matches(`.${jsTabLink}`)) return;
-      e.preventDefault();
-      const target = e.target;
-
-      doc.querySelectorAll(`.${jsTabLink}`).forEach(el => {
-        el.classList.remove('active');
-      });
-
-      // if tab is not active
-      if (doc.querySelector('.active') === null) {
-
-        // hides all tabs
-        doc.querySelectorAll(`.${tabBody}`).forEach(el => {
-          el.classList.add(`${hide}`);
-        });
-
-        // shows only the target tab
-        doc.querySelector(target.hash).classList.remove(`${hide}`);
-        target.classList.add('active');
-
-        this.animationHandler(target.hash);
-      }
-    }); */
-
-  const dataVuemmerce = {
-    id: "vuemmerce",
+  const dataVuemmerce: ProjectModel = {
     name: "Vuemmerce | E-commerce template",
     description: "A pure frontend starter ecommerce template made with:",
-    sourceCodeUrl: `${githubProfileUrl}/Vuemmerce`,
+    sourceCodeUrl: `${profileUrl}/Vuemmerce`,
     demoUrl: "https://vuemmerce-git-master.ivanlori.now.sh/",
     technologies: ["Vue.js", "ES6", "Nuxt.js", "Vuex", "Bulma framework"],
   };
 
-  const dataCvBuilder = {
-    id: "builder",
+  const dataCvBuilder: ProjectModel = {
     name: "CV-Builder",
     description:
       "A resume builder with export in PDF format written with the following technologies:",
-    sourceCodeUrl: "https://github.com/ivanlori/CV-builder",
+    sourceCodeUrl: `${profileUrl}/CV-builder`,
     demoUrl: "",
     technologies: [
       "React.js",
@@ -104,6 +50,25 @@
       "ES6",
     ],
   };
+
+  function onTabClick(e: any) {
+    e.preventDefault();
+    const target = e.target.id;
+
+    if (target === "vuemmerce") {
+      showBuilder = false;
+      showEstimate = false;
+      showVuemmerce = true;
+    } else if (target === "builder") {
+      showBuilder = true;
+      showEstimate = false;
+      showVuemmerce = false;
+    } else if (target === "estimate") {
+      showBuilder = false;
+      showEstimate = true;
+      showVuemmerce = false;
+    }
+  }
 </script>
 
 <section class="fadeIn container">
@@ -116,14 +81,29 @@
       </p>
       <ul class="tab tab-block">
         <li class="tab-item">
-          <a class="active" href="#builder">CV Builder</a>
+          <a
+            class={showBuilder && 'active'}
+            id="builder"
+            on:click={onTabClick}>CV Builder</a>
         </li>
-        <li class="tab-item"><a href="#vuemmerce">Vuemmerce</a></li>
-        <li class="tab-item"><a href="#estimate">Estimate of costs</a></li>
+        <li class="tab-item">
+          <a
+            class={showVuemmerce && 'active'}
+            id="vuemmerce"
+            on:click={onTabClick}>Vuemmerce</a>
+        </li>
+        <li class="tab-item">
+          <a
+            id="estimate"
+            class={showEstimate && 'active'}
+            on:click={onTabClick}>Estimate of costs</a>
+        </li>
       </ul>
-      <SingleProjectLayout {...dataCvBuilder} />
-      <SingleProjectLayout {...dataVuemmerce} />
-      <SingleProjectLayout {...dataEstimateOnline} />
+      <div class="mt-2">
+        <SingleProjectLayout data={dataCvBuilder} visible={showBuilder} />
+        <SingleProjectLayout data={dataVuemmerce} visible={showVuemmerce} />
+        <SingleProjectLayout data={dataEstimateOnline} visible={showEstimate} />
+      </div>
     </div>
   </div>
 </section>

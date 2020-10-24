@@ -1,25 +1,25 @@
-<script>
-  export let id;
-  export let name;
-  export let description;
-  export let demoUrl;
-  export let technologies;
+<script lang="ts">
+  export let data: any;
+  export let visible: boolean;
 
-  function showTechnologies(items) {
-    return items
-      .map((item) => `<li class="d-invisible}">${item}</li>`)
-      .join("");
-  }
+  const { name, description, demoUrl, technologies, sourceCodeUrl } = data;
 </script>
 
-<div {id}>
+<div class={!visible && 'd-none'}>
   <h3>{name}</h3>
   <p>
     {@html description}
   </p>
-  <ul>{showTechnologies(technologies)}</ul>
-  <div id={links}>
+  <ul>
+    {#each technologies as technology}
+      <li class="fadeInRight">{technology}</li>
+    {/each}
+  </ul>
+  <div>
     <a target="_blank" rel="noopener" href={sourceCodeUrl}>Source code</a>
-    {demoUrl && `<div class="dot hide-xs hide-sm"></div> <a target="_blank" rel="noopener" href="${demoUrl}">Demo</a>`}
+    {#if demoUrl}
+      <div class="dot hide-xs hide-sm" />
+      <a target="_blank" rel="noopener" href={demoUrl}>Demo</a>
+    {/if}
   </div>
 </div>

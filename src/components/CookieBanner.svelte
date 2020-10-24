@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { showCookieBanner } from "../store";
 
   function closeBanner() {

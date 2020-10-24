@@ -1,14 +1,16 @@
-<script>
-  import { page } from "../store";
+<script lang="ts">
+  import { page, showCookieBanner } from "../store";
 
   const description = `I write <strong>HTML</strong>, <strong>CSS</strong> and <strong>Javascript</strong> to translate ideas in reality.<br>
       Someone says I'm a <strong>Frontend Developer</strong>.`;
 
   function goToAbout() {
+    showCookieBanner.set(false);
     page.set("about");
   }
 
   function goToProject() {
+    showCookieBanner.set(false);
     page.set("projects");
   }
 </script>
@@ -45,7 +47,6 @@
               <span class="icon-linkedin" />
             </a>
           </li>
-          <ul />
         </ul>
       </div>
     </div>
